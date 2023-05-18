@@ -17,21 +17,25 @@ const Navbar = () => {
       </li>
 
       <li>
-        <NavLink to="my_toys" className="mb-1 lg:mb-1 lg:mr-1">
+        <NavLink to="/my_toys" className="mb-1 lg:mb-1 lg:mr-1">
           My Toys
         </NavLink>
       </li>
 
       <li>
-        <NavLink to="add_a_toy" className="mb-1 lg:mb-1 lg:mr-1">
+        <NavLink to="/add_a_toy" className="mb-1 lg:mb-1 lg:mr-1">
           Add A Toy
         </NavLink>
       </li>
 
       <li>
-        <NavLink to="blog" className="mb-1 lg:mb-1 lg:mr-1">
+        <NavLink to="/blog" className="mb-1 lg:mb-1 lg:mr-1">
           Blog
         </NavLink>
+      </li>
+
+      <li>
+        <NavLink to="/login">Login</NavLink>
       </li>
     </>
   );
