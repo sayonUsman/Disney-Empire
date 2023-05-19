@@ -1,6 +1,38 @@
 import bg_img from "../../assets/bg_image.jpg";
 
 const AddToy = () => {
+  const handleAddToy = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const sellerName = form.sellerName.value;
+    const sellerEmail = form.sellerEmail.value;
+    const toyName = form.toyName.value;
+    const category = form.category.value;
+    const price = form.price.value;
+    const rating = form.rating.value;
+    const quantity = form.quantity.value;
+    const toyPicture = form.url.value;
+    const description = form.description.value;
+
+    const toyDetails = {
+      sellerName,
+      sellerEmail,
+      toyName,
+      category,
+      price,
+      rating,
+      quantity,
+      toyPicture,
+      description,
+    };
+
+    fetch("http://localhost:5000/add_toy", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(toyDetails),
+    });
+  };
+
   return (
     <div
       className="hero min-h-screen"
@@ -10,7 +42,7 @@ const AddToy = () => {
     >
       <div className="card">
         <div className="card-body">
-          <form>
+          <form onSubmit={handleAddToy}>
             <div className="flex flex-col lg:flex-row">
               <div className="form-control">
                 <label className="label">
@@ -37,7 +69,7 @@ const AddToy = () => {
               </div>
             </div>
 
-            <div className="flex flex-col lg:flex-row">
+            <div className="flex flex-col lg:flex-row lg:mt-4">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text font-semibold">Toy Name</span>
@@ -63,7 +95,7 @@ const AddToy = () => {
               </div>
             </div>
 
-            <div className="flex flex-col lg:flex-row">
+            <div className="flex flex-col lg:flex-row lg:mt-4">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text font-semibold">Price</span>
@@ -89,7 +121,7 @@ const AddToy = () => {
               </div>
             </div>
 
-            <div className="flex flex-col lg:flex-row">
+            <div className="flex flex-col lg:flex-row lg:mt-4">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text font-semibold">
@@ -119,18 +151,19 @@ const AddToy = () => {
               </div>
             </div>
 
-            <div className="form-control mt-10">
+            <div className="form-control mt-7">
               <label className="label">
                 <span className="label-text font-semibold">Description</span>
               </label>
 
               <textarea
                 rows="9"
+                id="description"
                 className="rounded-lg border border-black pl-4 pt-2 pr-4 pb-2"
               ></textarea>
             </div>
 
-            <div className="form-control mt-10">
+            <div className="form-control mt-12">
               <div className="flex mx-auto">
                 <input
                   type="submit"
