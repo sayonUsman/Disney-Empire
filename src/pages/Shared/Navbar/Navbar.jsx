@@ -64,7 +64,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="bg-[#daf5fa]">
+    <div className=" bg-gradient-to-t  from-white to-[#bdedfa]">
       <div className="navbar container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -98,7 +98,9 @@ const Navbar = () => {
             </div>
           </div>
 
-          <a className="btn btn-ghost normal-case text-xl">Disney Empire</a>
+          <a className="btn btn-ghost normal-case text-xl ml-1">
+            Disney Empire
+          </a>
         </div>
 
         <div className="navbar-center hidden lg:flex">

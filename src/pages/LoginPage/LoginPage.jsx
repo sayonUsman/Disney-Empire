@@ -54,41 +54,42 @@ const LoginPage = () => {
         backgroundImage: `url(${bg_img})`,
       }}
     >
-      <div className="hero-overlay bg-opacity-60"></div>
-
-      <div className="w-96 text-center text-neutral-content">
+      <div className="w-96">
         <div className="card">
           <div className="card-body">
             <form onSubmit={handleLogin}>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-white ">Email</span>
+                  <span className="label-text font-semibold">Email</span>
                 </label>
 
                 <input
                   type="email"
                   id="email"
                   placeholder="email"
-                  className="input input-bordered text-black"
+                  className="input input-bordered text-black border border-black"
                   required
                 />
               </div>
 
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-white ">Password</span>
+                  <span className="label-text font-semibold ">Password</span>
                 </label>
 
                 <input
                   type="password"
                   id="password"
                   placeholder="password"
-                  className="input input-bordered text-black"
+                  className="input input-bordered text-black border border-black"
                   required
                 />
 
                 <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
+                  <a
+                    href="#"
+                    className="label-text-alt font-semibold link link-hover"
+                  >
                     Forgot password?
                   </a>
                 </label>
@@ -99,13 +100,13 @@ const LoginPage = () => {
                   type="submit"
                   id="submit"
                   value="Login"
-                  className="btn bg-[#daf5fa] text-black hover:text-white"
+                  className="btn"
                 />
               </div>
             </form>
 
             <p className="text-center mt-2">
-              <small>
+              <small className="font-semibold">
                 New to this website!!! Please{" "}
                 <Link to="/signUp" className="link link-hover text-black">
                   Sign Up
@@ -121,10 +122,7 @@ const LoginPage = () => {
               </h1>
 
               <div className="form-control mt-6">
-                <button
-                  className="btn bg-[#daf5fa] text-black hover:text-white"
-                  onClick={handleGoogleLogin}
-                >
+                <button className="btn" onClick={handleGoogleLogin}>
                   Google
                 </button>
               </div>
