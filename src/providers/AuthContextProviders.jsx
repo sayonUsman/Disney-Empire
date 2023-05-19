@@ -28,6 +28,20 @@ const AuthContextProviders = ({ children }) => {
     };
   }, [auth]);
 
+  const loggedInUser = () => {
+    const user = auth.currentUser;
+
+    if (user !== null) {
+      const displayName = user.displayName;
+      const email = user.email;
+      const photoURL = user.photoURL;
+
+      return [displayName, email, photoURL];
+    }
+
+    return [];
+  };
+
   const createNewUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
@@ -46,10 +60,11 @@ const AuthContextProviders = ({ children }) => {
 
   const authContext = {
     user,
+    loggedInUser,
     createNewUser,
     loginWithEmailAndPassword,
-    logOut,
     loginWithGoogle,
+    logOut,
   };
 
   AuthContextProviders.propTypes = {

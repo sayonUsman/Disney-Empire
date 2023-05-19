@@ -1,7 +1,18 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../../assets/logo.png";
+import { AuthContext } from "../../../providers/AuthContextProviders";
 
 const Navbar = () => {
+  const { user, logOut, loggedInUser } = useContext(AuthContext);
+  const userDetails = loggedInUser();
+
+  const handleLogOut = () => {
+    logOut()
+      .than(() => {})
+      .catch(() => {});
+  };
+
   const navContent = (
     <>
       <li>
@@ -16,17 +27,21 @@ const Navbar = () => {
         </NavLink>
       </li>
 
-      <li>
-        <NavLink to="/my_toys" className="mb-1 lg:mb-1 lg:mr-1">
-          My Toys
-        </NavLink>
-      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink to="/my_toys" className="mb-1 lg:mb-1 lg:mr-1">
+              My Toys
+            </NavLink>
+          </li>
 
-      <li>
-        <NavLink to="/add_a_toy" className="mb-1 lg:mb-1 lg:mr-1">
-          Add A Toy
-        </NavLink>
-      </li>
+          <li>
+            <NavLink to="/add_a_toy" className="mb-1 lg:mb-1 lg:mr-1">
+              Add A Toy
+            </NavLink>
+          </li>
+        </>
+      )}
 
       <li>
         <NavLink to="/blog" className="mb-1 lg:mb-1 lg:mr-1">
@@ -34,9 +49,17 @@ const Navbar = () => {
         </NavLink>
       </li>
 
-      <li>
-        <NavLink to="/login">Login</NavLink>
-      </li>
+      {user ? (
+        <li>
+          <NavLink to="/login" onClick={handleLogOut}>
+            Log Out
+          </NavLink>
+        </li>
+      ) : (
+        <li>
+          <NavLink to="/login">Login</NavLink>
+        </li>
+      )}
     </>
   );
 
@@ -82,13 +105,58 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navContent}</ul>
         </div>
 
-        <div className="navbar-end">
-          <div className="avatar online">
-            <div className="w-12 rounded-full">
-              <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+        {user ? (
+          <div className="navbar-end">
+            <div className="dropdown dropdown-end mr-3 md:mr-4">
+              <label
+                tabIndex={0}
+                className="btn btn-ghost btn-circle avatar online"
+              >
+                <div className="w-10 rounded-full">
+                  <img
+                    src={
+                      userDetails[2]
+                        ? userDetails[2]
+                        : "https://img.freepik.com/free-vector/hand-drawn-princess-background_23-2148161047.jpg?w=826&t=st=1684492757~exp=1684493357~hmac=6f6524a0abeeb14c13b35f760417bb4579fd49d41ce0bb30900ed4f17f461e3b"
+                    }
+                  />
+                </div>
+              </label>
+
+              <ul
+                tabIndex={0}
+                className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-[#daf5fa] rounded-md w-52"
+              >
+                <li>
+                  <NavLink
+                    to="/profile"
+                    className="justify-between btn-ghost mb-1 pr-1"
+                  >
+                    {userDetails[0] ? userDetails[0] : userDetails[1]}
+                  </NavLink>
+                </li>
+
+                <li>
+                  <NavLink to="/settings" className="btn-ghost mb-1">
+                    Settings
+                  </NavLink>
+                </li>
+
+                <li>
+                  <NavLink
+                    to="/login"
+                    onClick={handleLogOut}
+                    className="btn-ghost"
+                  >
+                    Log Out
+                  </NavLink>
+                </li>
+              </ul>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="navbar-end"></div>
+        )}
       </div>
     </div>
   );
