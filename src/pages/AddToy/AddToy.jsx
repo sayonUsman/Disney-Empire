@@ -1,9 +1,15 @@
+import { useState } from "react";
 import bg_img from "../../assets/bg_image.jpg";
 
 const AddToy = () => {
+  const [message, setMessage] = useState("");
+
   const handleAddToy = (event) => {
     event.preventDefault();
+    setMessage("");
+
     const form = event.target;
+    form.reset();
     const sellerName = form.sellerName.value;
     const sellerEmail = form.sellerEmail.value;
     const toyName = form.toyName.value;
@@ -30,7 +36,13 @@ const AddToy = () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(toyDetails),
-    });
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          setMessage("Toy is added successfully");
+        }
+      });
   };
 
   return (
@@ -176,6 +188,16 @@ const AddToy = () => {
           </form>
         </div>
       </div>
+
+      {message && (
+        <div className="toast toast-end">
+          <div className="alert alert-success">
+            <div>
+              <span>{message}</span>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
