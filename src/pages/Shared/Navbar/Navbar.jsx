@@ -36,7 +36,7 @@ const Navbar = () => {
           </li>
 
           <li>
-            <NavLink to="/add_a_toy" className="mb-1 lg:mb-1 lg:mr-1">
+            <NavLink to="/add_toy" className="mb-1 lg:mb-1 lg:mr-1">
               Add A Toy
             </NavLink>
           </li>
