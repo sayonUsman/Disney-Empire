@@ -32,7 +32,7 @@ const AddToy = () => {
       description,
     };
 
-    fetch("http://localhost:5000/add_toy", {
+    fetch("https://disney-empire.vercel.app/add_toy", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(toyDetails),

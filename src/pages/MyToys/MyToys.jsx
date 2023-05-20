@@ -7,7 +7,7 @@ const MyToys = () => {
   const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/my_toys/${user?.email}`)
+    fetch(`https://disney-empire.vercel.app/my_toys/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.length === 0) {
