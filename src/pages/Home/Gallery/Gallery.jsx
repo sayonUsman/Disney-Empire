@@ -4,7 +4,7 @@ const Gallery = () => {
   const [exhibitionToys, setExhibitionToys] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/")
+    fetch("https://disney-empire.vercel.app/")
       .then((res) => res.json())
       .then((data) => setExhibitionToys(data));
   }, []);
