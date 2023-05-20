@@ -6,12 +6,17 @@ import Error_404 from "../pages/Error_404/Error_404";
 import AddToy from "../pages/AddToy/AddToy";
 import AllToy from "../pages/AllToy/AllToy";
 import MyToys from "../pages/MyToys/MyToys";
+import Home from "../pages/Home/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
     children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
       {
         path: "/all_toy",
         element: <AllToy></AllToy>,
