@@ -22,8 +22,8 @@ const Navbar = () => {
       </li>
 
       <li>
-        <NavLink to="/all_toys" className="mb-1 lg:mb-1 lg:mr-1">
-          All Toys
+        <NavLink to="/all_toy" className="mb-1 lg:mb-1 lg:mr-1">
+          All Toy
         </NavLink>
       </li>
 
