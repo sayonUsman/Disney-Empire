@@ -93,7 +93,7 @@ const Navbar = () => {
           </div>
 
           <div className="avatar">
-            <div className="w-12 rounded-full">
+            <div className="w-12 rounded-full ml-1 lg:ml-3">
               <img src={logo} alt="logo" />
             </div>
           </div>

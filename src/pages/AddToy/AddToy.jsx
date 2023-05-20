@@ -9,7 +9,6 @@ const AddToy = () => {
     setMessage("");
 
     const form = event.target;
-    form.reset();
     const sellerName = form.sellerName.value;
     const sellerEmail = form.sellerEmail.value;
     const toyName = form.toyName.value;
@@ -19,6 +18,7 @@ const AddToy = () => {
     const quantity = form.quantity.value;
     const toyPicture = form.url.value;
     const description = form.description.value;
+    form.reset();
 
     const toyDetails = {
       sellerName,

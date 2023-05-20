@@ -116,7 +116,7 @@ const SignUpPage = () => {
                 <input
                   type="submit"
                   id="submit"
-                  value="Sing Up"
+                  value="Sign Up"
                   className="btn"
                 />
               </div>
