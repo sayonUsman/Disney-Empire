@@ -2,8 +2,10 @@ import { Link, useNavigate } from "react-router-dom";
 import bg_img from "../../assets/bg_image.jpg";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthContextProviders";
+import useTitle from "../../hooks/useTitle";
 
 const SignUpPage = () => {
+  useTitle("Sign Up");
   const { createNewUser, loginWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   const [message, setMessage] = useState("");

@@ -1,7 +1,10 @@
+import useTitle from "../../hooks/useTitle";
 import Gallery from "./Gallery/Gallery";
 import Header from "./Header/Header";
 
 const Home = () => {
+  useTitle("Home");
+
   return (
     <div className="container mx-auto mb-10">
       <Header></Header>

@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import error404 from "../../assets/Error_404.jpg";
+import useTitle from "../../hooks/useTitle";
 
 const Error_404 = () => {
+  useTitle("404 Error");
+
   return (
     <div>
       <div

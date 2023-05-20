@@ -1,7 +1,9 @@
 import { useState } from "react";
 import bg_img from "../../assets/bg_image.jpg";
+import useTitle from "../../hooks/useTitle";
 
 const AddToy = () => {
+  useTitle("Add Toy");
   const [message, setMessage] = useState("");
 
   const handleAddToy = (event) => {
