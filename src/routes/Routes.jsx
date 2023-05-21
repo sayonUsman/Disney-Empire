@@ -9,6 +9,8 @@ import MyToys from "../pages/MyToys/MyToys";
 import Home from "../pages/Home/Home";
 import Updates from "../pages/MyToys/Updates/Updates";
 import Blog from "../pages/Blog/Blog";
+import Details from "../pages/AllToy/Details/Details";
+import PrivateRoutes from "../privateRoutes/privateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,16 @@ const router = createBrowserRouter([
       {
         path: "/all_toy",
         element: <AllToy></AllToy>,
+      },
+      {
+        path: "/details/:id",
+        element: (
+          <PrivateRoutes>
+            <Details></Details>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://disney-empire.vercel.app/details/${params.id}`),
       },
       {
         path: "/my_toys",

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useTitle from "../../hooks/useTitle";
+import { Link } from "react-router-dom";
 
 const AllToy = () => {
   useTitle("All Toy");
@@ -37,7 +38,9 @@ const AllToy = () => {
                 <td>{`$${toy.price}`}</td>
                 <td>{`${toy.quantity} Dolls`}</td>
                 <td>
-                  <button className="link link-hover">View Details</button>
+                  <Link to={`/details/${toy._id}`} className="link link-hover">
+                    View Details
+                  </Link>
                 </td>
               </tr>
             </tbody>
