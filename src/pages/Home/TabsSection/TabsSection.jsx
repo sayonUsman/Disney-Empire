@@ -22,7 +22,7 @@ const TabsSection = () => {
   }, []);
 
   return (
-    <Tabs className="mt-12 md:mt-16">
+    <Tabs className="mt-9">
       <TabList className="text-center">
         <Tab>Disney Princess</Tab>
         <Tab>Frozen Dolls</Tab>
