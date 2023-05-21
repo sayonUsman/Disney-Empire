@@ -1,6 +1,7 @@
 import useTitle from "../../hooks/useTitle";
 import Gallery from "./Gallery/Gallery";
 import Header from "./Header/Header";
+import TabsSection from "./TabsSection/TabsSection";
 
 const Home = () => {
   useTitle("Home");
@@ -15,6 +16,10 @@ const Home = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         <Gallery></Gallery>
+      </div>
+
+      <div className="mt-16 md:mt-20">
+        <TabsSection></TabsSection>
       </div>
     </div>
   );
