@@ -8,23 +8,17 @@ const TabsSection = () => {
   const [donaldDuck, setDonaldDuck] = useState([]);
 
   useEffect(() => {
-    fetch(`https://disney-empire.vercel.app/all_toy/${"Disney Princess"}`)
+    fetch(`https://disney-empire.vercel.app/tabs_toys/${"Disney Princess"}`)
       .then((res) => res.json())
-      .then((data) => {
-        setDisneyPricess(data), console.log(data);
-      });
+      .then((data) => setDisneyPricess(data));
 
-    fetch(`https://disney-empire.vercel.app/all_toy/${"Frozen Dolls"}`)
+    fetch(`https://disney-empire.vercel.app/tabs_toys/${"Frozen Dolls"}`)
       .then((res) => res.json())
-      .then((data) => {
-        setFrozenDolls(data), console.log(data);
-      });
+      .then((data) => setFrozenDolls(data));
 
-    fetch(`https://disney-empire.vercel.app/all_toy/${"Donald Duck"}`)
+    fetch(`https://disney-empire.vercel.app/tabs_toys/${"Donald Duck"}`)
       .then((res) => res.json())
-      .then((data) => {
-        setDonaldDuck(data), console.log(data);
-      });
+      .then((data) => setDonaldDuck(data));
   }, []);
 
   return (
