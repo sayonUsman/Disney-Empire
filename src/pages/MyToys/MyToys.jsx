@@ -7,19 +7,36 @@ const MyToys = () => {
   useTitle("My Toys");
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
-  const [showToast, setShowToast] = useState(false);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     fetch(`https://disney-empire.vercel.app/my_toys/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.length === 0) {
-          setShowToast(true);
+          setMessage("You have no toy to view in the list.");
         } else {
           setMyToys(data);
         }
       });
   }, [user?.email]);
+
+  const handleDelete = (id) => {
+    setMessage("");
+
+    fetch(`https://disney-empire.vercel.app/my_toys/delete/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const remainingToys = myToys.filter((toy) => toy._id !== id);
+        setMyToys(remainingToys);
+
+        if (data.acknowledged) {
+          setMessage("Your toy is deleted successfully");
+        }
+      });
+  };
 
   return (
     <div className="container mx-auto min-h-screen mt-10 mb-5">
@@ -56,7 +73,12 @@ const MyToys = () => {
                   </td>
 
                   <td>
-                    <button className="link link-hover">Delete</button>
+                    <button
+                      className="link link-hover"
+                      onClick={() => handleDelete(toy._id)}
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               </tbody>
@@ -64,11 +86,11 @@ const MyToys = () => {
         </table>
       </div>
 
-      {showToast && (
+      {message && (
         <div className="toast toast-end">
           <div className="alert alert-info">
             <div>
-              <span>You have no toy to view in the list.</span>
+              <span>{message}</span>
             </div>
           </div>
         </div>
