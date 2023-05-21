@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthContextProviders";
 import useTitle from "../../hooks/useTitle";
+import { Link } from "react-router-dom";
 
 const MyToys = () => {
   useTitle("My Toys");
@@ -46,7 +47,12 @@ const MyToys = () => {
                   <td>{`${toy.quantity} Dolls`}</td>
                   <td>{`$${toy.price}`}</td>
                   <td>
-                    <button className="link link-hover">Update</button>
+                    <Link
+                      to={`/updates/${toy._id}`}
+                      className="link link-hover"
+                    >
+                      Update
+                    </Link>
                   </td>
 
                   <td>
