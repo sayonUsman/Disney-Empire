@@ -21,7 +21,7 @@ const MyToys = () => {
   }, [user?.email]);
 
   return (
-    <div className="container mx-auto mt-10">
+    <div className="container mx-auto min-h-screen mt-10 mb-5">
       <div className="overflow-x-auto">
         <table className="table table-compact w-full">
           <thead>

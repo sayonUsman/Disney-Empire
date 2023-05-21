@@ -25,7 +25,7 @@ const Gallery = () => {
               <h2 className="card-title">{toy.short_description}</h2>
 
               <div className="card-actions">
-                <button className="btn rounded-md bg-info text-black hover:text-white mt-3">
+                <button className="btn rounded-md bg-pink-400 text-black hover:text-white mt-3">
                   Buy Now
                 </button>
               </div>
