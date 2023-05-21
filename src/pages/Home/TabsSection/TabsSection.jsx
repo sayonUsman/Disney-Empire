@@ -43,7 +43,7 @@ const TabsSection = () => {
                 </figure>
 
                 <div className="card-body items-center text-center">
-                  <h2 className="card-title">Name: {toy.toyName}</h2>
+                  <h2 className="card-title">{toy.toyName}</h2>
 
                   <h2 className="card-title">Price: ${toy.price}</h2>
 
@@ -75,7 +75,7 @@ const TabsSection = () => {
                 </figure>
 
                 <div className="card-body items-center text-center">
-                  <h2 className="card-title">Name: {toy.toyName}</h2>
+                  <h2 className="card-title">{toy.toyName}</h2>
 
                   <h2 className="card-title">Price: ${toy.price}</h2>
 
@@ -107,7 +107,7 @@ const TabsSection = () => {
                 </figure>
 
                 <div className="card-body items-center text-center">
-                  <h2 className="card-title">Name: {toy.toyName}</h2>
+                  <h2 className="card-title">{toy.toyName}</h2>
 
                   <h2 className="card-title">Price: ${toy.price}</h2>
 
