@@ -16,13 +16,13 @@ const Navbar = () => {
   const navContent = (
     <>
       <li>
-        <NavLink to="/" className="mb-1 lg:mb-1 lg:mr-1">
+        <NavLink to="/" className="mb-1 lg:mr-1">
           Home
         </NavLink>
       </li>
 
       <li>
-        <NavLink to="/all_toy" className="mb-1 lg:mb-1 lg:mr-1">
+        <NavLink to="/all_toy" className="mb-1 lg:mr-1">
           All Toy
         </NavLink>
       </li>
@@ -30,13 +30,13 @@ const Navbar = () => {
       {user && (
         <>
           <li>
-            <NavLink to="/my_toys" className="mb-1 lg:mb-1 lg:mr-1">
+            <NavLink to="/my_toys" className="mb-1 lg:mr-1">
               My Toys
             </NavLink>
           </li>
 
           <li>
-            <NavLink to="/add_toy" className="mb-1 lg:mb-1 lg:mr-1">
+            <NavLink to="/add_toy" className="mb-1 lg:mr-1">
               Add A Toy
             </NavLink>
           </li>
@@ -44,7 +44,7 @@ const Navbar = () => {
       )}
 
       <li>
-        <NavLink to="/blog" className="mb-1 lg:mb-1 lg:mr-1">
+        <NavLink to="/blog" className="mb-1 lg:mr-1">
           Blog
         </NavLink>
       </li>
