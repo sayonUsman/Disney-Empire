@@ -1,13 +1,14 @@
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import banner from "../../../assets/banner.png";
 
 const Header = () => {
   return (
-    <div
-      className="hero min-h-screen"
-      style={{
-        backgroundImage: `url(${banner})`,
-      }}
-    ></div>
+    <Carousel>
+      <div>
+        <img src={banner} />
+      </div>
+    </Carousel>
   );
 };
 
