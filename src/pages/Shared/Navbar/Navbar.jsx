@@ -43,12 +43,6 @@ const Navbar = () => {
         </>
       )}
 
-      <li>
-        <NavLink to="/blog" className="mb-1 lg:mr-1">
-          Blog
-        </NavLink>
-      </li>
-
       {user ? (
         <li>
           <NavLink to="/login" onClick={handleLogOut}>
